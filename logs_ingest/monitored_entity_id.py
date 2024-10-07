@@ -53,7 +53,7 @@ def infer_monitored_entity_id(category: str, parsed_record: Dict):
 
     if dt_me_type and resource_id:
         identifier = [create_monitored_entity_id(dt_me_type_element, resource_id) for dt_me_type_element in dt_me_type]
-        parsed_record["dt.source_entity"] = identifier
+        # parsed_record["dt.source_entity"] = identifier
         for i in range(len(dt_me_type)):
             parsed_record[f'dt.entity.{dt_me_type[i].casefold()}'] = identifier[i]
         # custom_device = next((s for s in identifier if CUSTOM_DEVICE_ENTITY_TYPE.casefold() in s.casefold()), None)
