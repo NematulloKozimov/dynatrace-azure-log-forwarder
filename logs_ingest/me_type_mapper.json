@@ -28,6 +28,15 @@
     "meType": "AZURE_EVENT_HUB"
   },
   {
+    "resourceType": "Microsoft.Web/sites", 
+    "meType": "AZURE_WEB_APP"
+  },
+  {
+    "resourceType": "Microsoft.Web/sites", 
+    "category": "FunctionAppLogs",
+    "meType": "AZURE_FUNCTION_APP"
+  },
+  {
     "resourceType": "Microsoft.Storage/storageAccounts", 
     "meType": "AZURE_STORAGE_ACCOUNT",
     "meSecondType": "CUSTOM_DEVICE"
@@ -76,16 +85,6 @@
     "resourceType": "Microsoft.Devices/IotHubs", 
     "meType": "AZURE_IOT_HUB",
     "meSecondType": "CUSTOM_DEVICE"
-  },
-  {
-    "resourceType": "Microsoft.Web/sites", 
-    "meType": "AZURE_WEB_APP",
-    "meSecondType": "CUSTOM_DEVICE"
-  },
-  {
-    "resourceType": "Microsoft.Web/sites", 
-    "category": "FunctionAppLogs",
-    "meType": "AZURE_FUNCTION_APP"
   },
   {
     "resourceType": "Microsoft.AppConfiguration/configurationStores",
