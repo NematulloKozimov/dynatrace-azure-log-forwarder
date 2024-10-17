@@ -152,19 +152,13 @@ def parse_record(record: Dict, self_monitoring: SelfMonitoring):
         "cloud.provider": "Azure"
     }
     extract_severity(record, parsed_record)
-    print("asd1", parsed_record)
     extract_cloud_log_forwarder(parsed_record)
-    print("asd2", parsed_record)
 
     if "resourceId" in record:
         extract_resource_id_attributes(parsed_record, record["resourceId"])
 
-    print("asd3", parsed_record)
-
     metadata_engine.apply(record, parsed_record)
-    print("asd4", parsed_record)
     convert_date_format(parsed_record)
-    print("asd5", parsed_record)
     category = record.get("category", "").lower()
     infer_monitored_entity_id(category, parsed_record)
 
