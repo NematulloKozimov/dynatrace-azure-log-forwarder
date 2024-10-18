@@ -58,6 +58,8 @@ def infer_monitored_entity_id(category: str, parsed_record: Dict):
         if custom_device is not None:
             parsed_record["dt.entity.custom_device"] = custom_device
 
+    print(parsed_record)
+
 def create_monitored_entity_id(entity_type: str, resource_id: str) -> str:
     long_id = _murmurhash2_64A(resource_id.lower().encode("UTF-8"))
     identifier = _encode_me_identifier(entity_type, long_id)
