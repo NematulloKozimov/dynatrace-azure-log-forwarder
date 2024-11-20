@@ -58,7 +58,7 @@ def infer_monitored_entity_id(category: str, parsed_record: Dict):
         if dt_me_type.casefold() == CUSTOM_DEVICE_ENTITY_TYPE.casefold():
             parsed_record["dt.entity.custom_device"] = identifier
 
-    print(parsed_record)
+    print("parsed", parsed_record)
 
 def create_monitored_entity_id(entity_type: str, resource_id: str) -> str:
     long_id = _murmurhash2_64A(resource_id.lower().encode("UTF-8"))
