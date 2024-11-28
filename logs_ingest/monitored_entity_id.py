@@ -53,12 +53,13 @@ def infer_monitored_entity_id(category: str, parsed_record: Dict):
             resource_id = resource_id_pattern.match(resource_id).group(0) if resource_id_pattern.match(resource_id) else None
 
     if dt_me_type and resource_id:
+        print("dt_me_type", dt_me_type)
+        print("resource_id", resource_id)
         identifier = create_monitored_entity_id(dt_me_type, resource_id)
         parsed_record["dt.source_entity"] = identifier
         if dt_me_type.casefold() == CUSTOM_DEVICE_ENTITY_TYPE.casefold():
             parsed_record["dt.entity.custom_device"] = identifier
 
-    print("parsed", parsed_record)
 
 def create_monitored_entity_id(entity_type: str, resource_id: str) -> str:
     long_id = _murmurhash2_64A(resource_id.lower().encode("UTF-8"))
