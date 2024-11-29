@@ -58,11 +58,6 @@ def infer_monitored_entity_id(category: str, parsed_record: Dict):
         if dt_me_type.casefold() == CUSTOM_DEVICE_ENTITY_TYPE.casefold():
             parsed_record["dt.entity.custom_device"] = identifier
 
-    a = "AZURE_VM"
-    b = "/subscriptions/6c2d84ff-9167-4258-8eb2-aa8ac9bd04e0/resourcegroups/ext-cnty-t-eune-rsg-dynatrace/providers/microsoft.compute/virtualmachines/ext-cnty-t-eune-vm-dynatrace02"
-    idks = create_monitored_entity_id(a, b)
-    print("generatedid", idks )
-
 
 def create_monitored_entity_id(entity_type: str, resource_id: str) -> str:
     long_id = _murmurhash2_64A(resource_id.lower().encode("UTF-8"))
